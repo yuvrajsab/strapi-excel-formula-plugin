@@ -14,7 +14,7 @@ const HomePage = () => {
   const [formulaInExcel, setFormulaInExcel] = useState("");
   const [formulaInJS, setFormulaInJS] = useState("");
   const [identifiersInJS, setIdentifiersInJS] = useState("");
-  const [varMapping, setVarMapping] = useState('');
+  const [varMapping, setVarMapping] = useState('{}');
   const [refactoredFormulaInJS, setRefactoredFormulaInJS] = useState("");
 
   function convertToJS(e) {
