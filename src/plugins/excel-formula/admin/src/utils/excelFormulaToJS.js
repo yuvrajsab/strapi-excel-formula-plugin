@@ -33,12 +33,15 @@ const getIdentifiersInJS = (jsCode) => {
     return Array.from(identifiers);
 }
 
+function escapeStringRegExp(str) {
+    return str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+}
 
 const renameIdentifiersInJS = (jsCode, mapping) => {
     let result = jsCode;
     for (const key in mapping) {
         // console.log('key', key);
-        const regExp = new RegExp(`(?!["'])[^A-z0-9](${key})[^A-z0-9](?!["'])`, 'g')
+        const regExp = new RegExp(`(?!["'])[^A-z0-9](${escapeStringRegExp(key)})[^A-z0-9](?!["'])`, 'g')
         result = result.replaceAll(regExp, (matched) => {
             return matched.replace(key, mapping[key]);
         });
