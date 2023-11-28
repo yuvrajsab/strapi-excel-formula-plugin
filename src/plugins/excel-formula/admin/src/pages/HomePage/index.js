@@ -36,11 +36,11 @@ const HomePage = () => {
   }
 
   return (
-    <div style={{ color: 'white' }}>
+    <div style={{ color: 'white', padding: '20px' }}>
       <h1>{pluginId} HomePage</h1>
       <br />
 
-      <form onSubmit={convertToJS}>
+      <form onSubmit={convertToJS} style={{border: '1px solid white', padding: '10px'}}>
         <h3>Enter Excel formula</h3>
         <br />
         <input type='text' name="query" onChange={(e) => setFormulaInExcel(e.target.value)} value={formulaInExcel} />
@@ -49,35 +49,35 @@ const HomePage = () => {
 
       <br />
 
-      <div>
+      <div style={{border: '1px solid white', padding: '10px'}}>
         <h3>JS formula</h3>
         <br />
-        <text id="js-formula-box">{formulaInJS}</text>
+        <div>{formulaInJS}</div>
       </div>
 
       <br />
 
-      <div>
+      <div style={{border: '1px solid white', padding: '10px'}}>
         <h3>JS Identifiers</h3>
         <br />
-        <text>{identifiersInJS}</text>
+        <div>{identifiersInJS}</div>
       </div>
 
       <br />
 
-      <form onSubmit={renameVarsInJS}>
+      <form onSubmit={renameVarsInJS} style={{border: '1px solid white', padding: '10px'}}>
         <h3>Rename identifiers</h3>
         <br />
-        <input onChange={(e) => setVarMapping(e.target.value)} value={varMapping} />
+        <textarea onChange={(e) => setVarMapping(e.target.value)}>{varMapping}</textarea>
         <button type='submit'>Enter</button>
       </form>
 
       <br />
 
-      <div>
+      <div style={{border: '1px solid white', padding: '10px'}}>
         <h3>Refactored JS formula</h3>
         <br />
-        <text>{refactoredFormulaInJS}</text>
+        <div>{refactoredFormulaInJS}</div>
       </div>
 
     </div>
